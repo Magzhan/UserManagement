@@ -2,24 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using User.Entity.Template;
 
 namespace User.Entity.Role {
-    public class Role {
-        [Key]
-        public int Id { get; set; }
+    public class Role : TemplateTable{
+    }
 
-        public string NormalizedName { get; set; }
+    public class Controller : TemplateTable { }
 
-        public string NameKz { get; set; }
-
-        public string NameRu { get; set; }
-
-        public string NameEn { get; set; }
-
-        public string DescriptionKz { get; set; }
-
-        public string DescriptionRu { get; set; }
-
-        public string DescriptionEn { get; set; }
+    public class Action : TemplateTable {
+        public int ControllerId { get; set; }
+        public Controller Controller { get; set; }
     }
 }
